@@ -185,3 +185,12 @@ body {
     letter-spacing: 5px;
     padding-left: 4px;
 }
+img{
+    width: 300px;
+}
+.divImagenes {
+  display: flex;
+  justify-content: center; 
+  align-items: center;   
+  
+}
