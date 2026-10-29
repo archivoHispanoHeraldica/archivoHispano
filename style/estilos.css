@@ -194,3 +194,6 @@ img{
   align-items: center;   
   
 }
+.ocultarDiv{
+    display: none;
+}
