@@ -17,12 +17,11 @@ function buscarNombre() {
   let busqueda = document.getElementById("buscadorInput").value;
   let imagenes = document.getElementById("galeriaImagenes");
   let ColleccionImagenes = Array.from(imagenes.children);
-  let encontrado;
+  let encontrado = false;
   ColleccionImagenes.forEach((imagen, i) => {
     let aside = document.getElementsByClassName("tarjeta")[i];
     let nombreImagen = aside.children[1].children[0].innerText;
     console.log(nombreImagen);
-    encontrado = false;
     if (busqueda != nombreImagen) {
       imagenes.children[i].classList.add("ocultarDiv");
     } else {
@@ -37,8 +36,6 @@ function buscarNombre() {
     let textoNoEncontrado = document.createElement("h1");
     textoNoEncontrado.textContent = "Imagen no encontrada";
     imagenes.appendChild(textoNoEncontrado);
-  }else{
-    
   }
 }
 document.addEventListener("DOMContentLoaded", () => {
