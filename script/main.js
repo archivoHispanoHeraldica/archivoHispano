@@ -14,29 +14,23 @@ window.addEventListener("load", () => {
     });
 });
 function buscarNombre() {
-  let busqueda = document.getElementById("buscadorInput").value;
-  let imagenes = document.getElementById("galeriaImagenes");
-  let ColleccionImagenes = Array.from(imagenes.children);
+  const busqueda = document.getElementById("buscadorInput").value.trim().toLowerCase();
+  const imagenes = document.getElementById("galeriaImagenes");
+  const aviso = document.getElementById("sinResultados");
   let encontrado = false;
-  ColleccionImagenes.forEach((imagen, i) => {
-    let aside = document.getElementsByClassName("tarjeta")[i];
-    let nombreImagen = aside.children[1].children[0].innerText;
-    console.log(nombreImagen);
-    if (busqueda != nombreImagen) {
-      imagenes.children[i].classList.add("ocultarDiv");
-    } else {
-      encontrado = true;
-    }
 
-    if (busqueda == "") {
-      imagenes.children[i].classList.remove("ocultarDiv");
-    }
+  Array.from(imagenes.children).forEach(item => {
+    // Funciona tanto si el hijo es la tarjeta como si la contiene
+    const tarjeta = item.querySelector(".tarjeta") ?? item;
+    const nombre = tarjeta.children[1].children[0].innerText.trim().toLowerCase();
+
+    const coincide = busqueda === "" || nombre.includes(busqueda);
+
+    item.classList.toggle("ocultarDiv", !coincide);
+    if (coincide) encontrado = true;
   });
-  if (!encontrado) {
-    let textoNoEncontrado = document.createElement("h1");
-    textoNoEncontrado.textContent = "Imagen no encontrada";
-    imagenes.appendChild(textoNoEncontrado);
-  }
+
+  aviso.hidden = encontrado;
 }
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("buscadorInput").addEventListener("keydown", (e) => {

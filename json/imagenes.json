@@ -2,7 +2,8 @@
     {
         "nombre": "logo heraldico",
         "enlace": "1976_sin_titulo_20250709115850-6.png",
-        "creador" : "alquilar"
+        "creador" : "alquilar",
+        "tags" : ["prueba1","prueba2"]
     },{
         "nombre" : "hola",
         "enlace" : "ryt_1.png"
