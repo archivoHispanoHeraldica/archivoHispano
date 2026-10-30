@@ -6,6 +6,8 @@
         "tags" : ["prueba1","prueba2"]
     },{
         "nombre" : "hola",
-        "enlace" : "ryt_1.png"
+        "enlace" : "ryt_1.png",
+        "creador" : "prueba",
+        "tags" : ["prueba1","prueba2"]
     }
 ]

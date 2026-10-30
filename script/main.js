@@ -67,7 +67,7 @@ function mostrarImagenes(imagenes) {
 
     // Añadir el contenido de texto
     titulo.textContent = imagenEnlace.nombre;
-    texto.textContent = "tag";
+    texto.textContent = "tag: " + imagenEnlace.tags.join(",");
     img.src =
       "https://pub-99626c190f264c3495b63f955cc9b130.r2.dev/archivoHispano/" +
       imagenEnlace.enlace;
