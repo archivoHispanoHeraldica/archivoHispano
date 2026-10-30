@@ -14,15 +14,19 @@ window.addEventListener("load", () => {
     });
 });
 function buscarNombre() {
-  const busqueda = document.getElementById("buscadorInput").value.trim().toLowerCase();
+  const busqueda = document
+    .getElementById("buscadorInput")
+    .value.trim()
+    .toLowerCase();
   const imagenes = document.getElementById("galeriaImagenes");
   const aviso = document.getElementById("sinResultados");
   let encontrado = false;
 
-  Array.from(imagenes.children).forEach(item => {
-    // Funciona tanto si el hijo es la tarjeta como si la contiene
-    const tarjeta = item.querySelector(".tarjeta") ?? item;
-    const nombre = tarjeta.children[1].children[0].innerText.trim().toLowerCase();
+  Array.from(imagenes.children).forEach((item) => {
+    const tarjeta = item;
+    const nombre = tarjeta.children[1].children[0].innerText
+      .trim()
+      .toLowerCase();
 
     const coincide = busqueda === "" || nombre.includes(busqueda);
 
@@ -30,7 +34,7 @@ function buscarNombre() {
     if (coincide) encontrado = true;
   });
 
-  aviso.hidden = encontrado;
+  aviso.classList.toggle("ocultarDiv", encontrado);
 }
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("buscadorInput").addEventListener("keydown", (e) => {
